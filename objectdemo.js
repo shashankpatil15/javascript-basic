@@ -4,7 +4,7 @@ emp = {id:101,name:"Shashank Patil",salary:10000,age:27,dob:"15-01-1991"}
 
 console.log(emp.id + " " +emp.name + " " + emp.salary + " " + emp.dob);
 
-/*instance of object */
+/*Instance of object */
 
 var emp=new Object();  
 emp.id=101;  
