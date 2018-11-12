@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document Object Module JS</title>
+</head>
+<body>
+    <script>
+        function printvalue() {
+            var name = document.form1.name.value;
+            alert("Welcome " +name);
+        }
+
+        function getelementbyid() {
+            var number = document.getElementById("number1").value;
+            alert(number*number*number)
+        }
+
+        function getelementbyname() {
+            var allgender = document.getElementsByName("gender");
+            alert(allgender.length);
+        }
+
+        function getelementbytagname() {
+            var totallength = document.getElementsByTagName("p");
+            alert(totallength.length);
+        }
+
+        function innerhtml() {
+            var data ="Name:- <input type='text' name='name'><br>Comment:-<textarea col='80' row='5'></textarea><br> <input type='button' value='show hidden'>";
+            document.getElementById('mylocation').innerHTML = data;           
+        }        
+
+        function innertextvalidate() {
+            var msg;
+            if(document.form1.psw.value.length>5) {
+                msg="good";                
+            } else {
+                msg="bad";
+            }
+            document.getElementById('mylocation1').innerHTML=msg;
+        }
+    </script>
+    <form action="#" name="form1">
+        Enter Name:- <input type="text" name="name" id=""> <br><br><br><br>
+        Password:- <input type="password" name="psw" id="" onkeyup="innertextvalidate()"><br><br>
+        Strength:<span id="mylocation1">no strength</span>  
+        
+        Enter Two Digit Number:- <input type="text" name="number" id="number1"><br><br><br>
+        Enter Your Gender :- <input type="radio" name="gender" id="">Male &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="gender" id="">Female <br><br><br>
+        <p>Hi this is introduction related to getelementby tag Name</p>
+        <p>Hi this is introduction related to getelementby tag Name</p>
+        <p>Hi this is introduction related to getelementby tag Name</p>
+        <p>Hi this is introduction related to getelementby tag Name</p>
+        <p>Hi this is introduction related to getelementby tag Name</p>
+        <input type="button" value="Show Resule" onClick="printvalue(); getelementbyid(); getelementbyname(); getelementbytagname()">
+        <input type="button" name="" id="" value="Hiddent Game" onclick="innerhtml()">
+        <div id="mylocation"></div>        
+    </form>
+</body>
+</html>
