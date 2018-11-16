@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+</head>
+<body>
+    <script>
+        function emailvalidation() {
+        var emails = document.emailvalidationform.uname.value;
+        var atpostion = emails.indexOf("@");
+        var dotpostion = emails.lastIndexOf(".");
+
+        if(atpostion<1 || dotpostion < atpostion+2 || dotpostion+2 >= emails.length) {
+            alert("Plese enter email as example@domain.com");
+            return false;
+        }
+    }
+    </script>
+ <form name="emailvalidationform" action="form-validations.html" method="POST" onsubmit="return emailvalidation()">
+        <div class="form-group">
+                <label for="">Email address</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" 
+                aria-describedby="emailHelp" placeholder="Enter email" name="uname">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>      
+</form>
+</body>
+</html>

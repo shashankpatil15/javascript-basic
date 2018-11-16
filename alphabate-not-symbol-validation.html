@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validation form</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
+</head>
+<body>
+        <form name="validationform" action="index.html" method="POST" onsubmit="return checkform(this);">
+                <div class="form-group">
+                    <label for="">Full Name</label>
+                    <input type="text" class="form-control" id="" aria-describedby="contactHelp"
+                    placeholder="Enter Contact Number" name="fullname">                   
+                  </div><br>
+                  <div class="form-group">
+                        <label for="">Full Name1</label>
+                        <input type="text" class="form-control" id="" aria-describedby="contactHelp"
+                        placeholder="Enter Contact Number" name="fullname1">                   
+                      </div><br>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <script>
+        function checkform(form) {
+            //validation fail if we put input null
+
+            if(form.fullname.value == "" || form.fullname1.value == ""){
+                alert("Input is Empty");
+                form.fullname.focus(); form.fullname1.focus();
+                return false;
+            }
+
+            // only alphnumeric characters
+
+            var re = /^[\w ]+$/;
+
+             if(!re.test(form.fullname.value))  {
+                alert("Symobls is not supported");
+                form.fullname.focus(); //The focus() command is used to set the focus to the problem element.
+                return false;
+            }
+            
+            //checking two value is not similar
+
+            if(form.fullname.value == form.fullname1.value) {
+                alert("Values are Identical")
+            }
+
+            //To check field are greater or less
+            /*var field1 = parseInt(form.fullname.value);
+            var field2 = parseInt(form.fullname2.value);
+            if(field1 > field2) {
+                alert("Greater Field is -- "+field1);
+            }*/
+            return true;
+        
+            }
+        </script>
+</body>
+</html>

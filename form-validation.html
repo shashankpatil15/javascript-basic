@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>From Validation</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
+    <style>
+      body {
+        border: 3px solid black;
+        width: 70%;
+      }
+    </style>
+</head>
+<body>
+
+    <form name="validationform" action="form-validations.html" method="POST" onsubmit="return validation(),checkedform(this)">
+        <div class="form-group">
+            <label for="">Contact Number</label>
+            <input type="text" class="form-control" id="exampleInputCnumber" 
+            aria-describedby="contactHelp" placeholder="Enter Contact Number" name="cnumber" required><span id="numloc"></span>
+            <small id="contactHelp" class="form-text text-muted">We'll never share your Number with anyone else.</small>
+          </div>
+        <div class="form-group">
+          <label for="">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" 
+          aria-describedby="emailHelp" placeholder="Enter email" name="uname">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" 
+          name="passwd">
+        </div>
+        <div class="form-group">
+            <label for="">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" 
+            name="confirmpasswd">
+          </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="" name="checkboxtxt">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </form>
+
+      <script>
+        function validation() {
+          var uname = document.validationform.uname.value;
+
+          var psw = document.validationform.passwd.value;
+
+          var cpsw = document.validationform.confirmpasswd.value;
+
+          var cnum = document.validationform.cnumber.value;
+          if(isNaN(cnum)) {
+            document.getElementById("numloc").innerHTML="Enter Number only";
+            return false
+          } else if(uname == null || uname == "") {
+            alert("Name Can't blank");
+            return false;            
+           
+          } else if(psw.length<6) {
+            alert("Passoword length should be greater than 6");
+            return false;
+          }else if(psw == cpsw) {
+            return true;
+          }else {
+            alert("Password Should be smilar");
+            return false;
+          }                         
+        }
+      </script>
+</body>
+</html>
